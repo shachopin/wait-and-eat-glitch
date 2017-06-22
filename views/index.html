@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="utf-8">
+    <title>Wait and Eat</title>
+    <!--Bootstrap latest compiled and minified CSS-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <!--Optional theme-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+    <!--Custom css-->
+    <link rel="stylesheet" href="content/css/app.css">
+</head>
+<body>
+    <!--small>Angular Enabled: {{true ? true : false}}</small-->
+    
+    <!--navbar directive that stays at the top of every page -->
+    <dd-navbar></dd-navbar>
+  
+    <div ng-view class="container"></div> <!--ng-view can work as an attribute directive ->
+    <!--Third-party JS-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+    <script src="https://code.angularjs.org/1.5.0/angular-route.js"></script>
+    
+    <script src="https://cdn.firebase.com/libs/angularfire/2.0.1/angularfire.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.7.5/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyDBkGghzQGbPfjbbJhw0C0oJ8ASkV6qDNI",
+        authDomain: "gomix-sms-client-wait-eat.firebaseapp.com",
+        databaseURL: "https://gomix-sms-client-wait-eat.firebaseio.com",
+        projectId: "gomix-sms-client-wait-eat",
+        storageBucket: "gomix-sms-client-wait-eat.appspot.com",
+        messagingSenderId: "804294548567"
+      };
+      firebase.initializeApp(config);
+    </script>
+  
+    <!--main app module-->
+    <script src="/angularapp/app.module.js"></script>
+  
+    <!--auth module-->
+    <script src="/angularapp/auth/auth.module.js"></script>
+    <script src="/angularapp/auth/config.route.js"></script>
+    <script src="/angularapp/auth/auth.controller.js"></script>
+    <script src="/angularapp/auth/auth.service.js"></script>
+    <script src="/angularapp/auth/authForm.directive.js"></script>
+  
+    <!--landing module-->
+    <script src="/angularapp/landing/landing.module.js"></script>
+    <script src="/angularapp/landing/config.route.js"></script>
+
+    <!--waitList module-->
+    <script src="/angularapp/waitList/waitList.module.js"></script>
+    <script src="/angularapp/waitList/config.route.js"></script>
+    <script src="/angularapp/waitList/waitList.controller.js"></script>
+    <script src="/angularapp/waitList/directives/partyForm.directive.js"></script>
+    <script src="/angularapp/waitList/directives/partyTable.directive.js"></script>
+   
+    <!--core module-->
+    <script src="/angularapp/core/core.module.js"></script>
+    <!--script src="/angularapp/core/constants.js"></script-->
+    <script src="/angularapp/core/party.service.js"></script>
+    <script src="/angularapp/core/firebaseData.service.js"></script>
+    <script src="/angularapp/core/textMessage.service.js"></script>
+  
+    <!--layout module-->
+    <script src="/angularapp/layout/layout.module.js"></script>
+    <script src="/angularapp/layout/navbar.directive.js"></script>
+    
+</body>
+</html>
