@@ -1,0 +1,46 @@
+<!--good technique to coding directive and original markup side by side-->
+<!--authForm directive-->
+<dd-auth-form 
+              error="vm.error"
+              form-title="Sign up"
+              submit-action="vm.register(user)">
+
+</dd-auth-form>
+
+<!--Original markup-->
+<form style="display:none" name="authForm" ng-submit="authForm.$valid && vm.register(vm.user)" class="form-signin" novalidate>
+  <h2 class="form-signin-heading">Sign up</h2>
+  <!--firebase authentication error-->
+  <p ng-show="vm.error" class="text-danger" ng-bind="vm.error"></p> <!--prefer to use ng-bind over {{}} because {{}} will flash momentarily in HTML raw state -->
+  <!--Email input-->
+  <input ng-model="vm.user.email" ng-model-options="{ updateOn: 'default blur', debounce: { default: 1000, blur: 0 } }" type="email" name="email" class="form-control" placeholder="Email Addrress" required autofocus>
+  <!--Email error-->
+  <div ng-show="authForm.$submitted">
+    <p ng-show="authForm.email.$error.required" class="text-danger">Email required</p>
+    <p ng-show="authForm.email.$error.email" class="text-danger">Please enter a valid email.</p>
+  </div>   
+  <!--Password input-->
+  <input ng-model="vm.user.password" type="password" name="password" class="form-control" placeholder="Password" required>
+  <!--Password error-->
+  <div ng-show="authForm.$submitted">
+    <p ng-show="authForm.password.$error.required" class="text-danger">Password required</p>
+  </div>
+  <button class="btn btn-lg btn-primary btn-block" type="submit">Sign up</button>
+</form>
+
+
+<!--
+Steps to turn on angular form validation
+1. set the form to novalidate to disable html native form validation
+2. name the form
+3. name the field so you can use <formname>.<fieldname>
+4. for field validation to work, name the form, name the field, and MAKE SURE YOU SET ng-model on that field
+-->
+
+<!--
+ng-model-options="{ updateOn: 'default blur', debounce: { default: 1000, blur: 0 } }"
+is similar to 
+Knockout Experiment 4 - Observable and Computed Observable  
+blur means tab out, so immediate update value, no wait
+default means key down, wait for 1000 ms, to give user a chance to type the right email
+-->
