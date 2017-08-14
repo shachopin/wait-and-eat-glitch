@@ -14,6 +14,7 @@
       bindToController: true, //without this, you have to use a $scope service in order to use parties in controller
       //bindgToController true will make the parties property directly in this controller as this
       //notice now the $scope.parties no longer work, also in directive, you cannot just directly use {{parties}}
+      //on the directive page, you have to call parties with reference vm, like vm.parties
       scope: {
         parties: '='  //two-way binding between this directive controller and waitListController
       }

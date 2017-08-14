@@ -30,12 +30,12 @@
     // function addParty() {  //moved to partyForm directive controller
     //   //vm.parties.push("another");
     //   //vm.parties.$add('another'); // $add is firebaseArray method 
-    //   vm.parties.$add(vm.newParty); //firebase add
+    //   vm.parties.$add(vm.newParty); //angular firebaseArray add
     //   vm.newParty = new partyService.Party();
     // }
 
     // function removeParty(party) { //can check firebase API doc  //moved to partyTable directive controller
-    //   vm.parties.$remove(party);  //firebase remove
+    //   vm.parties.$remove(party);  //angular firebaseArray remove
     // }
 
     // function sendTextMessage(party) { //you have access to the party object //moved to partyTable directive controller
