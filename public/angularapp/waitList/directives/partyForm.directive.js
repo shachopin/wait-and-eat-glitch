@@ -9,7 +9,7 @@
     return {
       templateUrl: '/angularapp/waitList/directives/partyForm.html',
       restrict: 'E',
-      controller: PartyFormController,
+      controller: PartyFormController, //if you don't sepcify a directive controller here and give it isolate scope, will be using waitListController which is the parent controller
       controllerAs: 'vm',
       bindToController: true, //without this, you have to use a $scope service in order to use parties in controller
       //bindgToController true will make the parties property directly in this controller as this
