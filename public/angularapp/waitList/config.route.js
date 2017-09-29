@@ -12,11 +12,11 @@
       templateUrl: '/angularapp/waitList/waitList.html',
       controller: 'WaitListController',
       controllerAs: 'vm',
-      resolve: {user: resolveUser}  //here the "user" can be used as a depdency for controller
+      resolve: {user: resolveUser}  //here the "user" can be used as a dependency for controller
     });
   }
   
-  function resolveUser(authService) {
+  function resolveUser(authService) { //even this resolve function can have dependencies
     return authService.firebaseAuthObject.$requireSignIn(); //buit-in function by firebase that if the user is logged in, returns a promise that ruturns the user object, the promise will got rejected, if user is not logged-in
     //return a promise, if the promise can be resolved successully, then go to waitList controller, and user set to the return value of the resolve value
     //the user can be injected into WaitList controller
