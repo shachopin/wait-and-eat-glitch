@@ -1,0 +1,31 @@
+https://sms-client-wait-eat.glitch.me/ 
+(https://github.com/shachopin/wait-and-eat-glitch)
+is talking to backend
+https://sms-server-wait-eat.glitch.me/
+(https://github.com/shachopin/glitch-sms-server-wait-and-eat)
+and also connecting to
+dawei-sms-server.herokuapp.com
+https://dashboard.heroku.com/apps/dawei-sms-server (https://github.com/shachopin/sms-server)
+
+
+found a way to prevent the heroku sms server from idling
+Installed Relic APM addon
+according to http://stackoverflow.com/questions/5480337/easy-way-to-prevent-heroku-idling
+
+
+//both server will go idle, so sms cannot be sent
+//for heroku, there is a way to prevent the dynmo from going idel
+//http://stackoverflow.com/questions/5480337/easy-way-to-prevent-heroku-idling
+
+
+// You can install the free New Relic add-on. It has an availability monitor feature that will ping your site twice per minute, thus preventing the dyno from idling.
+// More or less the same solution as Jesse but maybe more integrated to Heroku... And with a few perks (performance monitoring is just great).
+// install New Relic APM addon to your dawei-sms-server app on heroku https://elements.heroku.com/addons/newrelic
+
+//Note: to all those saying it doesn't work: the important part in my answer is "availability monitor". Just installing the addon won't help. You also need to setup the availability monitoring with the URL of your heroku app.
+
+//how to set the availability monitor:
+//https://docs.newrelic.com/docs/alerts/new-relic-alerts/managing-notification-channels/availability-monitoring-legacy
+
+or
+https://quickleft.com/blog/6-easy-ways-to-prevent-your-heroku-node-app-from-sleeping/ --> the js pinger is what I use for both heroku and gomix sms server
